@@ -8,4 +8,11 @@ public class Mutation
     {
         return await validator.Validate(input);
     }
+    
+    public async Task<bool> AddProductCatalogDirect(
+        ProductCatalogInput input,
+        [Service] ProductByIdDataLoader dataLoader)
+    {
+        return await dataLoader.LoadAsync(input.Id) is null;
+    }
 }

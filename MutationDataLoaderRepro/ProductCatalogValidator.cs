@@ -1,9 +1,9 @@
 namespace MutationDataLoaderRepro;
 
-public sealed class ProductCatalogValidator(ProductCatalogByIdDataLoader productCatalog)
+public sealed class ProductCatalogValidator(ProductCatalogByIdDataLoader dataLoader)
 {
     public async Task<bool> Validate(ProductCatalogInput input)
     {
-        return await productCatalog.LoadAsync(input.Id) is null;
+        return await dataLoader.LoadAsync(input.Id) is null;
     }
 }
