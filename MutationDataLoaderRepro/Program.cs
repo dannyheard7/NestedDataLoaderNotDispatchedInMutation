@@ -3,7 +3,6 @@ using MutationDataLoaderRepro;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddScoped<ProductCatalogValidator>()
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>()

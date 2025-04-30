@@ -2,10 +2,10 @@
 
 public class Query
 {
-    public Task<bool> ValidateProductCatalogInput(
-        ProductCatalogInput input,
-        [Service] ProductCatalogValidator validator)
+    public Task<ProductCatalog?> GetProductCatalog(
+        int id,
+        [Service] ProductCatalogByIdDataLoader dataLoader)
     {
-        return validator.Validate(input);
+        return dataLoader.LoadAsync(id);
     }
 }
